@@ -1,0 +1,10 @@
+.login_panel {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+label.error {
+	color: red;
+}
