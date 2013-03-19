@@ -15,7 +15,7 @@ class RecordAdmin(admin.ModelAdmin):
     actions = [export_as_xls]
     date_hierarchy = 'request_date'
     formfield_overrides = {
-        models.BigIntegerField: {'widget': forms.TextInput(attrs={'size':'40'})},
+        models.BigIntegerField: {'widget': forms.TextInput(attrs={'size': '40'})},
     }
 
     def changelist_view(self, request, extra_context=None):
@@ -29,7 +29,7 @@ class RecordAdmin(admin.ModelAdmin):
         except:
             pass
 
-        if not request.GET.has_key('status__exact'):
+        if 'status__exact' in request.GET:
             q = request.GET.copy()
             q['status__exact'] = '0'
             request.GET = q

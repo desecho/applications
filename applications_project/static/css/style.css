@@ -1,8 +1,8 @@
 .login_panel {
     float: right;
     position: absolute;
-    top: 0;
     right: 20px;
+    top: 0;
 }
 
 label.error {

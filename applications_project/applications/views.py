@@ -1,9 +1,9 @@
 # -*- coding: utf8 -*-
-from django.shortcuts import render_to_response, redirect
-from applications.models import Record, Department, SubscriberStatus, Type, User
+from django.shortcuts import redirect
+from applications.models import Record, Department, SubscriberStatus, Type
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django-annoying import render_to
+from annoying.decorators import render_to
 
 
 def logout_view(request):

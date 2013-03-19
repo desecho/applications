@@ -38,19 +38,18 @@
         window.location = '?' + new_qs.join("&");
       }
       $(function() {
-          $( "#request_date_gte" ).datepicker({ dateFormat: 'yy-mm-dd'{% if request_date_gte %}, defaultDate: '{{ request_date_gte }}'{% endif %} });
-          $( "#request_date_lte" ).datepicker({ dateFormat: 'yy-mm-dd'{% if request_date_lte %}, defaultDate: '{{ request_date_lte }}'{% endif %} });
+        $( "#request_date_gte" ).datepicker({ dateFormat: 'yy-mm-dd'{% if request_date_gte %}, defaultDate: '{{ request_date_gte }}'{% endif %} });
+        $( "#request_date_lte" ).datepicker({ dateFormat: 'yy-mm-dd'{% if request_date_lte %}, defaultDate: '{{ request_date_lte }}'{% endif %} });
       });
     </script>
   <div id="changelist-filter">
-    <h2>{% trans 'Filter' %} </h2>
+    <h2>{% trans 'Filter' %}</h2>
     <h3>дата заявки</h3>
     <p>
-        С: <br /><input type="text" id="request_date_gte" value="{{ request_date_gte|default:'' }}" size="10"><br />
-        По: <br /><input type="text" id="request_date_lte" value="{{ request_date_lte|default:'' }}" size="10">
-    </p>
+      С: <br><input type="text" id="request_date_gte" value="{{ request_date_gte|default:'' }}" size="10"><br>
+      По: <br><input type="text" id="request_date_lte" value="{{ request_date_lte|default:'' }}" size="10">
     <ul>
-        <li><a href="#" onclick="javascript:applyDateFilters();">Применить фильтр</a></li>
+        <li><a href="#" onclick="javascript:applyDateFilters();">Применить фильтр</a>
     </ul>
     {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
   </div>

@@ -4,10 +4,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'applications_project.views.home', name='home'),
-    # url(r'^applications_project/', include('applications_project.foo.urls')),
+urlpatterns = patterns(
+    '',
     url(r'^$', 'applications.views.index'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
     url(r'^logout/$', 'applications.views.logout_view'),

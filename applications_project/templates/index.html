@@ -9,69 +9,68 @@
 <script src="/static/libs/jquery_jgrowl/jquery.jgrowl.min.js"></script>
 
 <script>
-    $(function() {
-        $("#request").validate({
-            rules: {
-                street: "required",
-                types: "required",
-                house: {
-					required: true,
-					digits: true,
-				},
-    			phone: {
-					required: true,
-					minlength: 6,
-					maxlength: 11,
-					digits: true,
-				},
-            },
-            messages: {
-                street: "Введите улицу.",
-                house: "Введите номер дома.",
-                phone: "Введите телефон.",
-                types: "Выберите тип заявки.",
-            },
-        });
-		{% if message %}
-			displayMessage('{{ message }}');
-		{% endif %}
+  $(function() {
+      $("#request").validate({
+        rules: {
+            street: "required",
+            types: "required",
+            house: {
+        required: true,
+        digits: true,
+      },
+        phone: {
+        required: true,
+        minlength: 6,
+        maxlength: 11,
+        digits: true,
+      },
+      },
+      messages: {
+          street: "Введите улицу.",
+          house: "Введите номер дома.",
+          phone: "Введите телефон.",
+          types: "Выберите тип заявки.",
+      },
     });
+    {% if message %}
+      displayMessage('{{ message }}');
+    {% endif %}
+  });
 </script>
 
 <form action="" method="post" id="request">
-	{% csrf_token %}
-	<label for="name">Наименование</label>
-	<input type="text" name="name" /><br>
-	<label for="street">Улица</label>
-	<input type="text" name="street" id="street"/>
-	<label for="house">Дом</label>
-	<input type="text" name="house" />
-	<label for="building">Корпус</label>
-	<input type="text" name="building" />
-	<label for="appartment">Квартира</label>
-	<input type="text" name="appartment" /><br />
-	<label for="phone">Телефон</label>
-	<input type="phone" name="phone" /><br />
-	<label for="contact">Имя контакта</label>
-	<input type="contact" name="contact" /><br />
-	Тип заявки<br>
-	{% for type in types %}
-	    <input type="checkbox" name="types" id="type{{ forloop.counter }}" value="{{ type.id }}" />
-	    <label for="type{{ forloop.counter }}">{{ type.name }}</label><br />
-	{% endfor %}
-	Статус<br>
-	{% for subscriber_status in subscriber_statuses %}
-	    <input type="radio" name="subscriber_status" id="subscriber_status{{ forloop.counter }}" value="{{ subscriber_status.id }}"
-		{% if forloop.counter == 1 %}
-		    checked
-		{% endif %}
-	    />
-	    <label for="subscriber_status{{ forloop.counter }}">{{ subscriber_status.name }}</label><br />
-	{% endfor %}
-	<label for="comment">Комментарий</label>
-	<input type="text" name="comment" /><br>
-
-	<input type="submit" value="Добавить" />
+  {% csrf_token %}
+  <label for="name">Наименование</label>
+  <input type="text" name="name" /><br>
+  <label for="street">Улица</label>
+  <input type="text" name="street" id="street"/>
+  <label for="house">Дом</label>
+  <input type="text" name="house" />
+  <label for="building">Корпус</label>
+  <input type="text" name="building" />
+  <label for="appartment">Квартира</label>
+  <input type="text" name="appartment" /><br />
+  <label for="phone">Телефон</label>
+  <input type="phone" name="phone" /><br />
+  <label for="contact">Имя контакта</label>
+  <input type="contact" name="contact" /><br />
+  Тип заявки<br>
+  {% for type in types %}
+    <input type="checkbox" name="types" id="type{{ forloop.counter }}" value="{{ type.id }}">
+    <label for="type{{ forloop.counter }}">{{ type.name }}</label><br>
+  {% endfor %}
+  Статус<br>
+  {% for subscriber_status in subscriber_statuses %}
+      <input type="radio" name="subscriber_status" id="subscriber_status{{ forloop.counter }}" value="{{ subscriber_status.id }}"
+    {% if forloop.counter == 1 %}
+        checked
+    {% endif %}
+      >
+      <label for="subscriber_status{{ forloop.counter }}">{{ subscriber_status.name }}</label><br>
+  {% endfor %}
+  <label for="comment">Комментарий</label>
+  <input type="text" name="comment"><br>
+  <input type="submit" value="Добавить">
 </form>
 <div id="error"></div>
 {% endblock %}
