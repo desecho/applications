@@ -23,16 +23,13 @@ The interface is in Russian.
 
 ##Installation instructions
 
-* Change the following variables in settings.py. You can generate SECRET_KEY using [Django Secret Key Generator](http://www.miniwebtool.com/django-secret-key-generator/). Insert your path to django admin static directory to STATICFILES_DIRS. It should be like something like '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static'.
-    * DATABASES
-    * SECRET_KEY
-    * BASE_PATH
-    * STATICFILES_DIRS
+* Insert your database settings in settings.py
 
 * Run
 ```
 python manage.py syncdb
 python manage.py collectstatic
+python manage.py shell
 ```
 
 * Import db.sql to your database. db.sql also includes some example data.
