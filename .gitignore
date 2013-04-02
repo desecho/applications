@@ -1,5 +1,6 @@
 *.py[cod]
 applications_project/static/admin/
+applications_project/applications_project/secret.py
 
 # C extensions
 *.so
