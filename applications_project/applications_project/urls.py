@@ -7,7 +7,8 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^$', 'applications.views.index'),
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+    url(r'^login/$', 'django.contrib.auth.views.login', {
+        'template_name': 'login.html'}),
     url(r'^logout/$', 'applications.views.logout_view'),
 
     # Uncomment the admin/doc line below to enable admin documentation:

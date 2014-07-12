@@ -31,8 +31,10 @@ def export_as_xls(modeladmin, request, queryset):
         row = row + 1
 
     wb.save('/tmp/output.xls')
-    response = HttpResponse(open('/tmp/output.xls', 'r').read(), mimetype='application/ms-excel')
-    response['Content-Disposition'] = 'attachment; filename=%s.xls' % unicode(opts).replace('.', '_')
+    response = HttpResponse(open('/tmp/output.xls', 'r').read(),
+                            mimetype='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename=%s.xls' % \
+        unicode(opts).replace('.', '_')
     return response
 
 export_as_xls.short_description = "Экспорт в xls"

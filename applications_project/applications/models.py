@@ -55,16 +55,22 @@ class Record(models.Model):
     house = models.CharField('дом', max_length=255)
     appartment = models.IntegerField('квартира', null=True, blank=True)
     phone = models.BigIntegerField('телефон', max_length=11)
-    contact = models.CharField('имя контакта', null=True, blank=True, max_length=255)
+    contact = models.CharField('имя контакта', null=True, blank=True,
+                               max_length=255)
     request_date = models.DateField('дата заявки', auto_now_add=True)
     type = models.ForeignKey(Type, verbose_name='тип заявки')
-    subscriber_status = models.ForeignKey(SubscriberStatus, verbose_name='тип абонента')
-    department = models.ForeignKey(Department, null=True, blank=True, verbose_name='отдел')
+    subscriber_status = models.ForeignKey(SubscriberStatus,
+                                          verbose_name='тип абонента')
+    department = models.ForeignKey(Department, null=True, blank=True,
+                                   verbose_name='отдел')
     priority = models.ForeignKey(Priority, default=2, verbose_name='приоритет')
-    monthly_payment = models.CharField('абон. плата', max_length=255, null=True, blank=True)
+    monthly_payment = models.CharField('абон. плата', max_length=255, null=True,
+                                       blank=True)
     speed = models.CharField('скорость', max_length=255, null=True, blank=True)
-    initial_payment = models.CharField('стоимость подключения', max_length=255, null=True, blank=True)
-    connection_date = models.DateField('дата подключения', null=True, blank=True)
+    initial_payment = models.CharField('стоимость подключения', max_length=255,
+                                       null=True, blank=True)
+    connection_date = models.DateField('дата подключения', null=True,
+                                       blank=True)
     comment = models.CharField('комментарий', max_length=255, blank=True)
     status = models.BooleanField('закрыта', default=False)
 

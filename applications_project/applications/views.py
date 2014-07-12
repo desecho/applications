@@ -31,7 +31,8 @@ def index(request):
                        phone=request.POST['phone'],
                        contact=request.POST['contact'],
                        type=Type.objects.get(pk=type),
-                       subscriber_status=SubscriberStatus.objects.get(pk=request.POST['subscriber_status']),
+                       subscriber_status=SubscriberStatus.objects.get(
+                           pk=request.POST['subscriber_status']),
                        comment=request.POST['comment'],
                        name=request.POST['name'],
                        appartment=appartment)

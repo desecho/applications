@@ -9,13 +9,18 @@ admin.site.register(Department)
 
 
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ['street', 'house', 'appartment', 'name', 'priority', 'request_date', 'type', 'subscriber_status', 'department', 'connection_date', 'status']
-    list_filter = ['request_date', 'street', 'priority', 'type', 'subscriber_status', 'department', 'connection_date', 'status']
+    list_display = ['street', 'house', 'appartment', 'name', 'priority',
+                    'request_date', 'type', 'subscriber_status', 'department',
+                    'connection_date', 'status']
+    list_filter = ['request_date', 'street', 'priority', 'type',
+                   'subscriber_status', 'department', 'connection_date',
+                   'status']
     search_fields = ['street']
     actions = [export_as_xls]
     date_hierarchy = 'request_date'
     formfield_overrides = {
-        models.BigIntegerField: {'widget': forms.TextInput(attrs={'size': '40'})},
+        models.BigIntegerField: {'widget': forms.TextInput(
+            attrs={'size': '40'})},
     }
 
     def changelist_view(self, request, extra_context=None):

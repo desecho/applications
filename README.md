@@ -1,7 +1,7 @@
 #Applications
 
-The application managing system. It’s used by one of the local ISP companies in Russia.
-The interface is in Russian.
+The web application on Python2/Django/jQuery. The application management system. 
+It’s used by one of the local ISP companies in Russia. The interface is in Russian.
 
 #Описание
 
@@ -29,7 +29,6 @@ The interface is in Russian.
 ```
 python manage.py syncdb
 python manage.py collectstatic
-python manage.py shell
 ```
 
 * Import db.sql to your database. db.sql also includes some example data.
